@@ -1,0 +1,21 @@
+{
+  "name": "empiryu",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Empiryu — a real-time feudal territorial-conquest MMO. Monorepo root.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:server": "npm run dev --workspace @empiryu/server",
+    "dev:client": "npm run dev --workspace @empiryu/client",
+    "build": "npm run build --workspace @empiryu/shared && npm run build --workspace @empiryu/server && npm run build --workspace @empiryu/client",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "infra:up": "docker compose up -d",
+    "infra:down": "docker compose down"
+  }
+}
